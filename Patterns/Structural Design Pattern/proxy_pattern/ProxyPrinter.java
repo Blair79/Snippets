@@ -1,18 +1,18 @@
 package proxy_pattern;
 
-class ProxyPrinter implements Printer{
+class ProxyPrinter implements Printer {
 	private ConsolePrinter consolePrinter;
-	   private String fileName;
+	private String fileName;
 
-	   public ProxyPrinter(String fileName){
-	      this.fileName = fileName;
-	   }
+	public ProxyPrinter(String fileName) {
+		this.fileName = fileName;
+	}
 
-	   @Override
-	   public void print() {
-	      if(consolePrinter == null){
-	         consolePrinter = new ConsolePrinter(fileName);
-	      }
-	      consolePrinter.print();
-	   }
+	@Override
+	public void print() {
+		if (consolePrinter == null) {
+			consolePrinter = new ConsolePrinter(fileName);
+		}
+		consolePrinter.print();
+	}
 }

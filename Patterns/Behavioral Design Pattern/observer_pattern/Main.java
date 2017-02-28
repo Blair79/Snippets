@@ -2,14 +2,14 @@ package observer_pattern;
 
 public class Main {
 	public static void main(String[] args) {
-	      MyValue subject = new MyValue();
+		MyValue subject = new MyValue();
 
-	      new FileObserver(subject);
-	      new EmailObserver(subject);
-	      new PrinterObserver(subject);
+		new FileObserver(subject);
+		new EmailObserver(subject);
+		new PrinterObserver(subject);
 
-	      subject.setState(15);
-	  
-	      subject.setState(10);
-	   }
+		subject.setState(15);
+
+		subject.setState(10);
+	}
 }

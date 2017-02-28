@@ -1,8 +1,8 @@
 package decorator_pattern;
 
-class PaperPrinter implements Printer{
+class PaperPrinter implements Printer {
 	@Override
-	   public void print() {
-	      System.out.println("Paper Printer");
-	   }
+	public void print() {
+		System.out.println("Paper Printer");
+	}
 }

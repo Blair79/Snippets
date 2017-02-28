@@ -15,51 +15,48 @@ import javafx.util.Duration;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program uses a Timeline to 
- * move a rectangle.
+ * This program uses a Timeline to move a rectangle.
  * 
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class TimelineEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        Pane root = new Pane();
+		Pane root = new Pane();
 
-        Rectangle rect = new Rectangle(20, 20, 60, 60);
-        rect.setEffect(new Lighting());
-        rect.setFill(Color.CADETBLUE);
+		Rectangle rect = new Rectangle(20, 20, 60, 60);
+		rect.setEffect(new Lighting());
+		rect.setFill(Color.CADETBLUE);
 
-        Timeline tl = new Timeline();
+		Timeline tl = new Timeline();
 
-        tl.setCycleCount(2);
-        tl.setAutoReverse(true);
-        
-        KeyValue kv = new KeyValue(rect.translateXProperty(), 200);
-        KeyFrame kf = new KeyFrame(Duration.millis(2000), kv);
-        tl.getKeyFrames().addAll(kf);
+		tl.setCycleCount(2);
+		tl.setAutoReverse(true);
 
-        tl.play();
+		KeyValue kv = new KeyValue(rect.translateXProperty(), 200);
+		KeyFrame kf = new KeyFrame(Duration.millis(2000), kv);
+		tl.getKeyFrames().addAll(kf);
 
-        root.getChildren().addAll(rect);
+		tl.play();
 
-        Scene scene = new Scene(root, 350, 250);
+		root.getChildren().addAll(rect);
 
-        stage.setTitle("Timeline");
-        stage.setScene(scene);
-        stage.show();
-    }
+		Scene scene = new Scene(root, 350, 250);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		stage.setTitle("Timeline");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

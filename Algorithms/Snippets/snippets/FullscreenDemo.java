@@ -48,8 +48,7 @@ public class FullscreenDemo {
 		if (System.getProperty("os.name").equals("Mac OS X")) {
 			// in multi-screen-Umgebungen: nur ein screen ist fullscreen
 			// der zweite wird nicht schwarz
-			System.setProperty("apple.awt.fullscreencapturealldisplays",
-					"false");
+			System.setProperty("apple.awt.fullscreencapturealldisplays", "false");
 			// fullscreen in einem Window; erm&oumlglicht die Darstellung des
 			// Kontextmenus
 			System.setProperty("apple.awt.fakefullscreen", "true");
@@ -85,7 +84,7 @@ class MainFrame extends JFrame implements ActionListener {
 		this.setLayout(new BorderLayout());
 		this.add(new MainPanel(), BorderLayout.CENTER);
 		this.add(topPanel, BorderLayout.NORTH);
-		
+
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setUndecorated(false);
 		this.setSize(this.getToolkit().getScreenSize());
@@ -94,19 +93,20 @@ class MainFrame extends JFrame implements ActionListener {
 			initDisplayMode();
 		else
 			this.setVisible(true);
-		
+
 	} // Konstruktor
 
 	private void initDisplayMode() {
 		if (checkFullscreen() && !this.isFullscreen) {
-			// Kommentar entfernen, um zu einer statischen Aufloesung von 1024 x 768 Pixeln zu wechseln
+			// Kommentar entfernen, um zu einer statischen Aufloesung von 1024 x
+			// 768 Pixeln zu wechseln
 			// DisplayMode oldDisplayMode = myDevice.getDisplayMode();
 			// DisplayMode prefDisplayMode = new DisplayMode(1024,
 			// 768,32,DisplayMode.REFRESH_RATE_UNKNOWN);
 			// if(myDevice.isDisplayChangeSupported()) {
 			// myDevice.setDisplayMode(prefDisplayMode);
 			// }
-			
+
 			this.removeNotify();
 			this.setVisible(false);
 			this.setUndecorated(!this.isUndecorated());
@@ -146,7 +146,7 @@ class MainFrame extends JFrame implements ActionListener {
 				isFullscreen = false;
 			}
 			this.requestFocus();
-			this.setLocation(0, 0);	
+			this.setLocation(0, 0);
 		}
 		this.repaint();
 		this.setVisible(true);
@@ -154,8 +154,7 @@ class MainFrame extends JFrame implements ActionListener {
 
 	// wird 'fullscreen' unterstuetzt?
 	public boolean checkFullscreen() {
-		myDevice = GraphicsEnvironment.getLocalGraphicsEnvironment()
-				.getDefaultScreenDevice();
+		myDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		return myDevice.isFullScreenSupported();
 	}
 
@@ -179,7 +178,8 @@ class MainFrame extends JFrame implements ActionListener {
 }
 
 /*
- * Nicht modale Elternklasse aller Dialoge, die sich bei Sichtbatrkeit immer ueber dem Hauptfenster befinden. 
+ * Nicht modale Elternklasse aller Dialoge, die sich bei Sichtbatrkeit immer
+ * ueber dem Hauptfenster befinden.
  */
 @SuppressWarnings("serial")
 class DialogTemplate extends JDialog implements ActionListener {
@@ -217,11 +217,8 @@ class FileSelector extends DialogTemplate {
 		chooser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				File file = chooser.getSelectedFile();
-				if (file != null
-						&& e.getActionCommand().equals(
-								JFileChooser.APPROVE_SELECTION)) {
-					pfadLabel.setText(chooser.getSelectedFile()
-							.getAbsolutePath());
+				if (file != null && e.getActionCommand().equals(JFileChooser.APPROVE_SELECTION)) {
+					pfadLabel.setText(chooser.getSelectedFile().getAbsolutePath());
 				}
 				if (okDialog != null) {
 					okDialog.setBounds(400, 400, 200, 150);
@@ -237,18 +234,19 @@ class FileSelector extends DialogTemplate {
 }
 
 /*
- * Stellt ein Panel bereit, das im Hauptfenster geladen ist und die Rechtsklick-Funktionalitaet liefert
+ * Stellt ein Panel bereit, das im Hauptfenster geladen ist und die
+ * Rechtsklick-Funktionalitaet liefert
  */
 @SuppressWarnings("serial")
-class MainPanel extends JPanel{
-	
-	public MainPanel(){
+class MainPanel extends JPanel {
+
+	public MainPanel() {
 		this.enableEvents(AWTEvent.MOUSE_EVENT_MASK);
 		this.add(new JLabel("hier rechts klicken!"));
 		this.setOpaque(true);
 		this.validate();
 	} // Ende Konstruktor
-	
+
 	/*
 	 * Zeigt einen einfachen Dialog durch Rechtsklick als Kontextmenu an.
 	 */
@@ -257,10 +255,8 @@ class MainPanel extends JPanel{
 
 		if (event.isPopupTrigger()) {
 			MenuDialog menuDialog = MenuDialog.getMenuDialog();
-			final int x = ((JPanel) event.getSource()).getX()
-					+ event.getX();
-			final int y = ((JPanel) event.getSource()).getY()
-					+ event.getY();
+			final int x = ((JPanel) event.getSource()).getX() + event.getX();
+			final int y = ((JPanel) event.getSource()).getY() + event.getY();
 			menuDialog.setLocation(x, y);
 			if (!menuDialog.isVisible() || !menuDialog.hasFocus()) {
 				menuDialog.setFocusable(true);

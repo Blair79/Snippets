@@ -22,41 +22,38 @@ import javafx.stage.Stage;
  */
 public class RadialGradientEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
-    
-    private void initUI(Stage stage) {
+		initUI(stage);
+	}
 
-        Pane root = new Pane();
-        
-        Canvas canvas = new Canvas(300, 300);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        doDrawing(gc);
-        
-        root.getChildren().add(canvas);    
+	private void initUI(Stage stage) {
 
-        Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
+		Pane root = new Pane();
 
-        stage.setTitle("Radial gradient");
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    private void doDrawing(GraphicsContext gc) {
-        
-        Stop[] stops1 = new Stop[] { new Stop(0, Color.RED), 
-            new Stop(1, Color.BLACK)};
-        RadialGradient lg1 = new RadialGradient(0, 0, 0.5, 0.5, 0.8, true, 
-                CycleMethod.NO_CYCLE, stops1);
-        gc.setFill(lg1);
-        gc.fillOval(30, 30, 150, 150);
-    }
+		Canvas canvas = new Canvas(300, 300);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		doDrawing(gc);
 
+		root.getChildren().add(canvas);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
+
+		stage.setTitle("Radial gradient");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	private void doDrawing(GraphicsContext gc) {
+
+		Stop[] stops1 = new Stop[] { new Stop(0, Color.RED), new Stop(1, Color.BLACK) };
+		RadialGradient lg1 = new RadialGradient(0, 0, 0.5, 0.5, 0.8, true, CycleMethod.NO_CYCLE, stops1);
+		gc.setFill(lg1);
+		gc.fillOval(30, 30, 150, 150);
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

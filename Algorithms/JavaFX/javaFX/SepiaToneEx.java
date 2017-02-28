@@ -16,53 +16,45 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program applies a SepiaTone effect
- * on an Image when a mouse pointer is over
- * the image.
+ * This program applies a SepiaTone effect on an Image when a mouse pointer is
+ * over the image.
  *
- * Author: Jan Bodnar
- * Website: zetcode.com
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class SepiaToneEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        StackPane root = new StackPane();
-        
-        Image image = new Image("file:mushroom.png");
+		StackPane root = new StackPane();
 
-        ImageView iw = new ImageView(image);
+		Image image = new Image("file:mushroom.png");
 
-        SepiaTone sepia = new SepiaTone();
-        iw.effectProperty().bind(
-                Bindings
-                    .when(iw.hoverProperty())
-                        .then((Effect) sepia)
-                        .otherwise((Effect) null)
-        );
+		ImageView iw = new ImageView(image);
 
-        iw.setCache(true);
-        iw.setCacheHint(CacheHint.SPEED);  
-        
-        root.getChildren().add(iw);
+		SepiaTone sepia = new SepiaTone();
+		iw.effectProperty().bind(Bindings.when(iw.hoverProperty()).then((Effect) sepia).otherwise((Effect) null));
 
-        Scene scene = new Scene(root);
+		iw.setCache(true);
+		iw.setCacheHint(CacheHint.SPEED);
 
-        stage.setTitle("SepiaTone");
-        scene.setFill(Color.WHITESMOKE);
-        stage.setScene(scene);
-        stage.show();
-    }
+		root.getChildren().add(iw);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		Scene scene = new Scene(root);
+
+		stage.setTitle("SepiaTone");
+		scene.setFill(Color.WHITESMOKE);
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

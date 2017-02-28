@@ -15,53 +15,50 @@ import javafx.util.Duration;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program uses a PathTransition to move 
- * a circle along a path.
+ * This program uses a PathTransition to move a circle along a path.
  * 
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class PathTransitionEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        Pane root = new Pane();
+		Pane root = new Pane();
 
-        Path path = new Path();
-        path.getElements().add(new MoveTo(20, 120));
-        path.getElements().add(new CubicCurveTo(180, 60, 250, 340, 420, 240));
+		Path path = new Path();
+		path.getElements().add(new MoveTo(20, 120));
+		path.getElements().add(new CubicCurveTo(180, 60, 250, 340, 420, 240));
 
-        Circle circle = new Circle(20, 120, 10);
-        circle.setFill(Color.CADETBLUE);
-        
-        PathTransition ptr = new PathTransition();
+		Circle circle = new Circle(20, 120, 10);
+		circle.setFill(Color.CADETBLUE);
 
-        ptr.setDuration(Duration.seconds(6));
-        ptr.setDelay(Duration.seconds(2));
-        ptr.setPath(path);
-        ptr.setNode(circle);
-        ptr.setCycleCount(2);
-        ptr.setAutoReverse(true);
-        ptr.play();     
+		PathTransition ptr = new PathTransition();
 
-        root.getChildren().addAll(path, circle);
+		ptr.setDuration(Duration.seconds(6));
+		ptr.setDelay(Duration.seconds(2));
+		ptr.setPath(path);
+		ptr.setNode(circle);
+		ptr.setCycleCount(2);
+		ptr.setAutoReverse(true);
+		ptr.play();
 
-        Scene scene = new Scene(root, 450, 300);
+		root.getChildren().addAll(path, circle);
 
-        stage.setTitle("PathTransition");
-        stage.setScene(scene);
-        stage.show();
-    }
+		Scene scene = new Scene(root, 450, 300);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		stage.setTitle("PathTransition");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

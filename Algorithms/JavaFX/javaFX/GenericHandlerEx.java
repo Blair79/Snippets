@@ -12,47 +12,44 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program adds a generic event 
- * handler to a button control.
+ * This program adds a generic event handler to a button control.
  *
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class GenericHandlerEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        StackPane root = new StackPane();
-        
-        Button btn = new Button("Button");
-        btn.addEventHandler(EventType.ROOT, new GenericHandler());
-        
-        root.getChildren().add(btn);
+		StackPane root = new StackPane();
 
-        Scene scene = new Scene(root, 300, 250);
+		Button btn = new Button("Button");
+		btn.addEventHandler(EventType.ROOT, new GenericHandler());
 
-        stage.setTitle("Generic handler");
-        stage.setScene(scene);
-        stage.show();
-    }
+		root.getChildren().add(btn);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		Scene scene = new Scene(root, 300, 250);
 
-    private class GenericHandler implements EventHandler<Event> {
+		stage.setTitle("Generic handler");
+		stage.setScene(scene);
+		stage.show();
+	}
 
-        @Override
-        public void handle(Event event) {
-            System.out.println(event.getEventType());
-        }
-    }
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	private class GenericHandler implements EventHandler<Event> {
+
+		@Override
+		public void handle(Event event) {
+			System.out.println(event.getEventType());
+		}
+	}
 }

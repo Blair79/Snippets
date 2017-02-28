@@ -6,26 +6,26 @@ import java.util.Random;
 
 public class Main {
 	public static void main(String[] args) {
-	    RandomInRanges rir = new RandomInRanges(1, 10);
-	    rir.addRange(50, 60);
-	    System.out.println(rir.getRandom());
-	  }
+		RandomInRanges rir = new RandomInRanges(1, 10);
+		rir.addRange(50, 60);
+		System.out.println(rir.getRandom());
+	}
+}
+
+class RandomInRanges {
+	private final List<Integer> range = new ArrayList<>();
+
+	RandomInRanges(int min, int max) {
+		this.addRange(min, max);
 	}
 
-	class RandomInRanges {
-	  private final List<Integer> range = new ArrayList<>();
+	final void addRange(int min, int max) {
+		for (int i = min; i <= max; i++) {
+			this.range.add(i);
+		}
+	}
 
-	  RandomInRanges(int min, int max) {
-	    this.addRange(min, max);
-	  }
-
-	  final void addRange(int min, int max) {
-	    for (int i = min; i <= max; i++) {
-	      this.range.add(i);
-	    }
-	  }
-
-	  int getRandom() {
-	    return this.range.get(new Random().nextInt(this.range.size()));
-	  }
+	int getRandom() {
+		return this.range.get(new Random().nextInt(this.range.size()));
+	}
 }

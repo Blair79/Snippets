@@ -13,44 +13,41 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program applies a Reflection effect
- * on a Text node.
+ * This program applies a Reflection effect on a Text node.
  *
- * Author: Jan Bodnar
- * Website: zetcode.com
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class ReflectionEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        StackPane root = new StackPane();
-        
-        Text text = new Text();
-        text.setText("ZetCode");
-        text.setFill(Color.STEELBLUE);
-        text.setFont(Font.font("Serif", FontWeight.BOLD, 60));
+		StackPane root = new StackPane();
 
-        Reflection ref = new Reflection();
-        text.setEffect(ref);
-        
-        root.getChildren().add(text);        
+		Text text = new Text();
+		text.setText("ZetCode");
+		text.setFill(Color.STEELBLUE);
+		text.setFont(Font.font("Serif", FontWeight.BOLD, 60));
 
-        Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
+		Reflection ref = new Reflection();
+		text.setEffect(ref);
 
-        stage.setTitle("Reflection");
-        stage.setScene(scene);
-        stage.show();
-    }
+		root.getChildren().add(text);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
+
+		stage.setTitle("Reflection");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

@@ -11,42 +11,40 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program shows four buttons in 
- * a right-aligned, horizontal row with a HBox.
+ * This program shows four buttons in a right-aligned, horizontal row with a
+ * HBox.
  * 
- * Author: Jan Bodnar
- * Website: zetcode.com
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class RowOfButtonsEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        HBox root = new HBox(5);
-        root.setPadding(new Insets(10));
-        root.setAlignment(Pos.BASELINE_RIGHT);
-        
-        Button prevBtn = new Button("Previous");
-        Button nextBtn = new Button("Next");
-        Button cancBtn = new Button("Cancel");
-        Button helpBtn = new Button("Help");
-        
-        root.getChildren().addAll(prevBtn, nextBtn, cancBtn, helpBtn);
+		HBox root = new HBox(5);
+		root.setPadding(new Insets(10));
+		root.setAlignment(Pos.BASELINE_RIGHT);
 
-        Scene scene = new Scene(root);
-        stage.setTitle("Row of buttons");
-        stage.setScene(scene);
-        stage.show();
-    }
+		Button prevBtn = new Button("Previous");
+		Button nextBtn = new Button("Next");
+		Button cancBtn = new Button("Cancel");
+		Button helpBtn = new Button("Help");
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		root.getChildren().addAll(prevBtn, nextBtn, cancBtn, helpBtn);
+
+		Scene scene = new Scene(root);
+		stage.setTitle("Row of buttons");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

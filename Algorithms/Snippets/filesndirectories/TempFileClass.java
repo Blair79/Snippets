@@ -7,21 +7,21 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 
 public class TempFileClass {
-    
-    public static void main(String[] args) throws IOException {
-        createTempFile("foobar", "txt");
-    }
-    
-    public static File createTempFile(String name, String suffix) {
-        try {
-            File temp = File.createTempFile(name, "." + suffix);
 
-            temp.deleteOnExit();
-            return temp;
+	public static void main(String[] args) throws IOException {
+		createTempFile("foobar", "txt");
+	}
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-} 
+	public static File createTempFile(String name, String suffix) {
+		try {
+			File temp = File.createTempFile(name, "." + suffix);
+
+			temp.deleteOnExit();
+			return temp;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

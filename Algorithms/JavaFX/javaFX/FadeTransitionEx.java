@@ -14,75 +14,73 @@ import javafx.util.Duration;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program uses a FadeTransition. A rectangle
- * fades out after we click into its area.
+ * This program uses a FadeTransition. A rectangle fades out after we click into
+ * its area.
  *
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class FadeTransitionEx extends Application {
 
-    private FadeTransition ft;
-    private Rectangle rect;
+	private FadeTransition ft;
+	private Rectangle rect;
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
-    
-    private void initUI(Stage stage) {
-        
-        Group root = new Group();
+		initUI(stage);
+	}
 
-        rect = new Rectangle(20, 20, 150, 150);
-        rect.setOnMouseClicked(new RectClickHandler());
+	private void initUI(Stage stage) {
 
-        ft = new FadeTransition(Duration.millis(5000), rect);
-        ft.setFromValue(1.0);
-        ft.setToValue(0.0);
+		Group root = new Group();
 
-        root.getChildren().add(rect);
+		rect = new Rectangle(20, 20, 150, 150);
+		rect.setOnMouseClicked(new RectClickHandler());
 
-        Scene scene = new Scene(root, 300, 250);
+		ft = new FadeTransition(Duration.millis(5000), rect);
+		ft.setFromValue(1.0);
+		ft.setToValue(0.0);
 
-        stage.setTitle("Fading transition");
-        stage.setScene(scene);
-        stage.show();        
-    }
+		root.getChildren().add(rect);
 
-    private class RectClickHandler implements EventHandler<MouseEvent> {
+		Scene scene = new Scene(root, 300, 250);
 
-        @Override
-        public void handle(MouseEvent event) {
-            
-            doHandle();
-        }
-        
-        private void doHandle() {
-            
-            Double opa = rect.getOpacity();
-            
-            if (opa.intValue() == 0) {
-                return;
-            }
-            
-            Animation.Status as = ft.getStatus();
-            
-            if (as == Animation.Status.RUNNING) {
-                return;
-            }
+		stage.setTitle("Fading transition");
+		stage.setScene(scene);
+		stage.show();
+	}
 
-            if (as == Animation.Status.STOPPED) {
-                ft.play();
-            }            
-        }
+	private class RectClickHandler implements EventHandler<MouseEvent> {
 
-    }
+		@Override
+		public void handle(MouseEvent event) {
 
-    public static void main(String[] args) {
-        Application.launch(args);
-    }
+			doHandle();
+		}
+
+		private void doHandle() {
+
+			Double opa = rect.getOpacity();
+
+			if (opa.intValue() == 0) {
+				return;
+			}
+
+			Animation.Status as = ft.getStatus();
+
+			if (as == Animation.Status.RUNNING) {
+				return;
+			}
+
+			if (as == Animation.Status.STOPPED) {
+				ft.play();
+			}
+		}
+
+	}
+
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
 }

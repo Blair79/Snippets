@@ -15,52 +15,50 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program combines a Reflection effect 
- * with a Lighting effect on a Text node.
+ * This program combines a Reflection effect with a Lighting effect on a Text
+ * node.
  *
- * Author: Jan Bodnar
- * Website: zetcode.com
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class CombiningEffectsEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        StackPane root = new StackPane();
+		StackPane root = new StackPane();
 
-        Light.Distant light = new Light.Distant();
-        light.setAzimuth(50);
+		Light.Distant light = new Light.Distant();
+		light.setAzimuth(50);
 
-        Lighting lighting = new Lighting();
-        lighting.setLight(light);
-        lighting.setSurfaceScale(5);
+		Lighting lighting = new Lighting();
+		lighting.setLight(light);
+		lighting.setSurfaceScale(5);
 
-        Text text = new Text();
-        text.setText("ZetCode");
-        text.setFill(Color.CADETBLUE);
-        text.setFont(Font.font(null, FontWeight.BOLD, 60));
+		Text text = new Text();
+		text.setText("ZetCode");
+		text.setFill(Color.CADETBLUE);
+		text.setFont(Font.font(null, FontWeight.BOLD, 60));
 
-        Reflection ref = new Reflection();
-        ref.setInput(lighting);
-        text.setEffect(ref);
-        
-        root.getChildren().add(text);
+		Reflection ref = new Reflection();
+		ref.setInput(lighting);
+		text.setEffect(ref);
 
-        Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
+		root.getChildren().add(text);
 
-        stage.setTitle("Combining effects");
-        stage.setScene(scene);
-        stage.show();
-    }
+		Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		stage.setTitle("Combining effects");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

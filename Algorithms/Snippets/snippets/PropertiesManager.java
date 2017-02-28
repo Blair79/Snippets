@@ -123,8 +123,7 @@ public class PropertiesManager {
 
 		// Falls Ablageverzeichnis nicht existiert, versuche es zu erstellen
 		if (!dir.isDirectory() && !dir.mkdirs()) {
-			System.err.println(dir
-					+ " ist kein Verzeichnis und kann nicht erstellt werden!");
+			System.err.println(dir + " ist kein Verzeichnis und kann nicht erstellt werden!");
 			return false;
 		}
 
@@ -137,8 +136,7 @@ public class PropertiesManager {
 				return true;
 			}
 		} catch (IOException e) {
-			System.err
-					.println("Konfigurationsdatei konnte nicht angelegt werden.");
+			System.err.println("Konfigurationsdatei konnte nicht angelegt werden.");
 			e.printStackTrace();
 		}
 		return false;
@@ -158,19 +156,16 @@ public class PropertiesManager {
 		// Windows mag keine Dot-Files
 		if (System.getProperty("os.name").contains("Windows")) {
 			dir = dir.indexOf('.') == 0 ? dir.substring(1) : dir;
-			fileName = fileName.indexOf('.') == 0 ? fileName.substring(1)
-					: fileName;
+			fileName = fileName.indexOf('.') == 0 ? fileName.substring(1) : fileName;
 		}
 
 		// wenn der Verzeichnisname nicht leer ist, '/' an Verzeichnisnamen
 		// haengen falls nicht vorhanden
-		dir = dir.lastIndexOf(fs) == dirName.length() || dirName.equals("") ? dir
-				: dir + fs;
+		dir = dir.lastIndexOf(fs) == dirName.length() || dirName.equals("") ? dir : dir + fs;
 
 		// wenn der Pfadname nicht leer ist, '/' an Pfadnamen haengen
 		// falls nicht vorhanden
-		rootPath = rootPath.lastIndexOf(fs) == rootPath.length()
-				|| rootPath.equals("") ? rootPath : rootPath + fs;
+		rootPath = rootPath.lastIndexOf(fs) == rootPath.length() || rootPath.equals("") ? rootPath : rootPath + fs;
 
 		// Pfad endgueltig zusammensetzen
 		configFilePath = rootPath + dir + fileName;
@@ -231,8 +226,8 @@ public class PropertiesManager {
 	private void loadProperties() {
 		File cf = new File(configFilePath);
 		if (cf.length() == 0) {
-			System.out.println("Properties k\u00F6nnen nicht geladen werden, "
-					+ cf + " ist leer.\nDefault Properties werden geladen.");
+			System.out.println("Properties k\u00F6nnen nicht geladen werden, " + cf
+					+ " ist leer.\nDefault Properties werden geladen.");
 			return;
 		}
 
@@ -255,8 +250,7 @@ public class PropertiesManager {
 				while (propEnum.hasMoreElements()) {
 					prop = (String) propEnum.nextElement();
 					if (properties.getProperty(prop).equals("")) {
-						properties.setProperty(prop,
-								defaultProperties.getProperty(prop));
+						properties.setProperty(prop, defaultProperties.getProperty(prop));
 					}
 				}
 				// Wenn Auslesen erfolgreich Abbruch
@@ -299,8 +293,7 @@ public class PropertiesManager {
 	 */
 	public void loadDefaultProperties(Object[] keys, Object[] values) {
 		if (keys.length != values.length) {
-			System.err
-					.println("Keys und Values der Default-Arrays sind ungleich lang.");
+			System.err.println("Keys und Values der Default-Arrays sind ungleich lang.");
 			return;
 		}
 		String key, value;

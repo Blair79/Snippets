@@ -17,86 +17,83 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program creates a MenuBar with one
- * menu and four menu items.
+ * This program creates a MenuBar with one menu and four menu items.
  *
- * Author: Jan Bodnar
- * Website: zetcode.com
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class MenuBarEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        HBox root = new HBox();
+		HBox root = new HBox();
 
-        MenuBar mbar = new MenuBar();
-        mbar.prefWidthProperty().bind(stage.widthProperty());
+		MenuBar mbar = new MenuBar();
+		mbar.prefWidthProperty().bind(stage.widthProperty());
 
-        MyMenuHandler handler = new MyMenuHandler();
+		MyMenuHandler handler = new MyMenuHandler();
 
-        Menu fileMenu = new Menu("File");
-        mbar.getMenus().add(fileMenu);
+		Menu fileMenu = new Menu("File");
+		mbar.getMenus().add(fileMenu);
 
-        MenuItem nmi = new MenuItem("New");
-        nmi.setOnAction(handler);
-        fileMenu.getItems().add(nmi);
+		MenuItem nmi = new MenuItem("New");
+		nmi.setOnAction(handler);
+		fileMenu.getItems().add(nmi);
 
-        MenuItem omi = new MenuItem("Open");
-        omi.setOnAction(handler);
-        fileMenu.getItems().add(omi);
+		MenuItem omi = new MenuItem("Open");
+		omi.setOnAction(handler);
+		fileMenu.getItems().add(omi);
 
-        MenuItem smi = new MenuItem("Save");
-        smi.setOnAction(handler);
-        fileMenu.getItems().add(smi);
+		MenuItem smi = new MenuItem("Save");
+		smi.setOnAction(handler);
+		fileMenu.getItems().add(smi);
 
-        fileMenu.getItems().add(new SeparatorMenuItem());
+		fileMenu.getItems().add(new SeparatorMenuItem());
 
-        MenuItem emi = new MenuItem("Exit");
-        emi.setOnAction((ActionEvent event) -> {
-            Platform.exit();
-        });
+		MenuItem emi = new MenuItem("Exit");
+		emi.setOnAction((ActionEvent event) -> {
+			Platform.exit();
+		});
 
-        fileMenu.getItems().add(emi);
+		fileMenu.getItems().add(emi);
 
-        root.getChildren().add(mbar);
+		root.getChildren().add(mbar);
 
-        Scene scene = new Scene(root, 300, 250);
+		Scene scene = new Scene(root, 300, 250);
 
-        stage.setTitle("MenuBar");
-        stage.setScene(scene);
-        stage.show();
-    }
+		stage.setTitle("MenuBar");
+		stage.setScene(scene);
+		stage.show();
+	}
 
-    private class MyMenuHandler implements EventHandler<ActionEvent> {
+	private class MyMenuHandler implements EventHandler<ActionEvent> {
 
-        @Override
-        public void handle(ActionEvent event) {
-            
-            doShowMessageDialog(event);
-        }
-        
-        private void doShowMessageDialog(ActionEvent event) {
+		@Override
+		public void handle(ActionEvent event) {
 
-            MenuItem mi = (MenuItem) event.getSource();
-            String item = mi.getText();
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Information dialog");
-            alert.setHeaderText("Menu item selection information");
-            alert.setContentText(item + " menu item selected");
+			doShowMessageDialog(event);
+		}
 
-            alert.showAndWait();
-        }
-    }
+		private void doShowMessageDialog(ActionEvent event) {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+			MenuItem mi = (MenuItem) event.getSource();
+			String item = mi.getText();
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Information dialog");
+			alert.setHeaderText("Menu item selection information");
+			alert.setContentText(item + " menu item selected");
+
+			alert.showAndWait();
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

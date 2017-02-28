@@ -11,41 +11,38 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program creates a tooltip for 
- * a button control.
+ * This program creates a tooltip for a button control.
  *
- * Author: Jan Bodnar
- * Website: zetcode.com
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class TooltipEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        HBox root = new HBox();
-        root.setPadding(new Insets(20));
-        
-        Button btn = new Button("Button");
-        Tooltip tooltip = new Tooltip("Button control");
-        Tooltip.install(btn, tooltip);
-        
-        root.getChildren().add(btn);
+		HBox root = new HBox();
+		root.setPadding(new Insets(20));
 
-        Scene scene = new Scene(root, 300, 250);
+		Button btn = new Button("Button");
+		Tooltip tooltip = new Tooltip("Button control");
+		Tooltip.install(btn, tooltip);
 
-        stage.setTitle("Tooltip");
-        stage.setScene(scene);
-        stage.show();
-    }
+		root.getChildren().add(btn);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		Scene scene = new Scene(root, 300, 250);
+
+		stage.setTitle("Tooltip");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

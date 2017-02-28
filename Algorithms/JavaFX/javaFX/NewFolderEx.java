@@ -17,68 +17,65 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program creates a NewFolder layout with 
- * a GridPane.
+ * This program creates a NewFolder layout with a GridPane.
  *
- * Author: Jan Bodnar
- * Website: zetcode.com
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class NewFolderEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        GridPane root = new GridPane();
-        root.setHgap(8);
-        root.setVgap(8);
-        root.setPadding(new Insets(5));
-        
-        ColumnConstraints cons1 = new ColumnConstraints();
-        cons1.setHgrow(Priority.NEVER);
-        root.getColumnConstraints().add(cons1);
+		GridPane root = new GridPane();
+		root.setHgap(8);
+		root.setVgap(8);
+		root.setPadding(new Insets(5));
 
-        ColumnConstraints cons2 = new ColumnConstraints();
-        cons2.setHgrow(Priority.ALWAYS);
-        
-        root.getColumnConstraints().addAll(cons1, cons2);
-        
-        RowConstraints rcons1 = new RowConstraints();
-        rcons1.setVgrow(Priority.NEVER);
-        
-        RowConstraints rcons2 = new RowConstraints();
-        rcons2.setVgrow(Priority.ALWAYS);  
-        
-        root.getRowConstraints().addAll(rcons1, rcons2);
-        
-        Label lbl = new Label("Name:");
-        TextField field = new TextField();
-        ListView view = new ListView();
-        Button okBtn = new Button("OK");
-        Button closeBtn = new Button("Close");
+		ColumnConstraints cons1 = new ColumnConstraints();
+		cons1.setHgrow(Priority.NEVER);
+		root.getColumnConstraints().add(cons1);
 
-        GridPane.setHalignment(okBtn, HPos.RIGHT);
+		ColumnConstraints cons2 = new ColumnConstraints();
+		cons2.setHgrow(Priority.ALWAYS);
 
-        root.add(lbl, 0, 0);
-        root.add(field, 1, 0, 3, 1);
-        root.add(view, 0, 1, 4, 2);
-        root.add(okBtn, 2, 3);
-        root.add(closeBtn, 3, 3);
-        
-        Scene scene = new Scene(root, 280, 300);
+		root.getColumnConstraints().addAll(cons1, cons2);
 
-        stage.setTitle("New folder");
-        stage.setScene(scene);
-        stage.show();
-    }
+		RowConstraints rcons1 = new RowConstraints();
+		rcons1.setVgrow(Priority.NEVER);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		RowConstraints rcons2 = new RowConstraints();
+		rcons2.setVgrow(Priority.ALWAYS);
+
+		root.getRowConstraints().addAll(rcons1, rcons2);
+
+		Label lbl = new Label("Name:");
+		TextField field = new TextField();
+		ListView view = new ListView();
+		Button okBtn = new Button("OK");
+		Button closeBtn = new Button("Close");
+
+		GridPane.setHalignment(okBtn, HPos.RIGHT);
+
+		root.add(lbl, 0, 0);
+		root.add(field, 1, 0, 3, 1);
+		root.add(view, 0, 1, 4, 2);
+		root.add(okBtn, 2, 3);
+		root.add(closeBtn, 3, 3);
+
+		Scene scene = new Scene(root, 280, 300);
+
+		stage.setTitle("New folder");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

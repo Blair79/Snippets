@@ -5,11 +5,11 @@ import java.util.Random;
 public class Main {
 	public static void main(String[] args) {
 
-	    String[] arr = { "A", "B", "C", "D" };
-	    Random random = new Random();
+		String[] arr = { "A", "B", "C", "D" };
+		Random random = new Random();
 
-	    int select = random.nextInt(arr.length);
+		int select = random.nextInt(arr.length);
 
-	    System.out.println("Random String selected: " + arr[select]);
-	  }
+		System.out.println("Random String selected: " + arr[select]);
+	}
 }

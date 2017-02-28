@@ -13,82 +13,77 @@ import javafx.stage.Stage;
  *
  * @author johndunning
  */
-public class DrawingShapes extends Application
-{
+public class DrawingShapes extends Application {
 
-    @Override
-    public void start(Stage primaryStage)
-    {
-        primaryStage.setTitle("Drawing Shapes");
+	@Override
+	public void start(Stage primaryStage) {
+		primaryStage.setTitle("Drawing Shapes");
 
-        //
+		//
 
-        Group root = new Group();
-        Scene scene = new Scene(root, 500, 260);
+		Group root = new Group();
+		Scene scene = new Scene(root, 500, 260);
 
-        //
+		//
 
-        Rectangle roundRect = new Rectangle(50,50,400,130);
+		Rectangle roundRect = new Rectangle(50, 50, 400, 130);
 
-        roundRect.setArcWidth(30);
-        roundRect.setArcHeight(60);
+		roundRect.setArcWidth(30);
+		roundRect.setArcHeight(60);
 
-        roundRect.setFill(null);
-        roundRect.setStroke(Color.DARKORANGE);
-        roundRect.setStrokeWidth(2);
-        roundRect.setStrokeLineCap(StrokeLineCap.BUTT);
+		roundRect.setFill(null);
+		roundRect.setStroke(Color.DARKORANGE);
+		roundRect.setStrokeWidth(2);
+		roundRect.setStrokeLineCap(StrokeLineCap.BUTT);
 
-        root.getChildren().add(roundRect);
+		root.getChildren().add(roundRect);
 
-        //
+		//
 
-        Slider slider = new Slider(30,150,30);
-        slider.setLayoutX(250-slider.getWidth()/2);
-        slider.setLayoutY(115-slider.getHeight()/2);
+		Slider slider = new Slider(30, 150, 30);
+		slider.setLayoutX(250 - slider.getWidth() / 2);
+		slider.setLayoutY(115 - slider.getHeight() / 2);
 
-        slider.widthProperty().addListener(
-                (ov, curVal, newVal) -> { slider.setLayoutX(250-slider.getWidth()/2); }
-        );
+		slider.widthProperty().addListener((ov, curVal, newVal) -> {
+			slider.setLayoutX(250 - slider.getWidth() / 2);
+		});
 
-        slider.heightProperty().addListener(
-                (ov, curVal, newVal) -> slider.setLayoutY(115-slider.getHeight()/2)
-        );
+		slider.heightProperty().addListener((ov, curVal, newVal) -> slider.setLayoutY(115 - slider.getHeight() / 2));
 
-        //
+		//
 
-        roundRect.arcWidthProperty().bind(slider.valueProperty());
+		roundRect.arcWidthProperty().bind(slider.valueProperty());
 
-        root.getChildren().add(slider);
+		root.getChildren().add(slider);
 
-        //
+		//
 
-        Slider slider2 = new Slider(10,120,50);
-        slider2.setLayoutX(50);
-        slider2.setLayoutY(230);
+		Slider slider2 = new Slider(10, 120, 50);
+		slider2.setLayoutX(50);
+		slider2.setLayoutY(230);
 
-        slider2.widthProperty().addListener(
-                (ov, curVal, newVal) -> { slider2.setLayoutX(250-slider2.getWidth()/2); }
-        );
+		slider2.widthProperty().addListener((ov, curVal, newVal) -> {
+			slider2.setLayoutX(250 - slider2.getWidth() / 2);
+		});
 
-        roundRect.yProperty().bind(slider2.valueProperty());
-        root.getChildren().add(slider2);
+		roundRect.yProperty().bind(slider2.valueProperty());
+		root.getChildren().add(slider2);
 
-        slider2.valueProperty().addListener(
-                (ov, curVal, newVal) -> slider.setLayoutY(slider.getLayoutY()+newVal.doubleValue()-curVal.doubleValue())
-        );
+		slider2.valueProperty().addListener((ov, curVal, newVal) -> slider
+				.setLayoutY(slider.getLayoutY() + newVal.doubleValue() - curVal.doubleValue()));
 
-        //
+		//
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args)
-    {
-        launch(args);
-    }
+	/**
+	 * @param args
+	 *            the command line arguments
+	 */
+	public static void main(String[] args) {
+		launch(args);
+	}
 
 }

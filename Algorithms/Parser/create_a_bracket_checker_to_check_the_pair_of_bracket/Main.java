@@ -5,79 +5,77 @@ import java.io.IOException;
 public class Main {
 	private String input;
 
-	  public Main(String in) {
-	    input = in;
-	  }
-
-	  public void check() {
-	    int stackSize = input.length(); 
-	    Stack theStack = new Stack(stackSize); 
-
-	    for (int j = 0; j < input.length(); j++)
-	    {
-	      char ch = input.charAt(j);
-	      switch (ch) {
-	      case '{': // opening symbols
-	      case '[':
-	      case '(':
-	        theStack.push(ch); // push them
-	        break;
-
-	      case '}': // closing symbols
-	      case ']':
-	      case ')':
-	        if (!theStack.isEmpty()) // if stack not empty,
-	        {
-	          char chx = theStack.pop(); // pop and check
-	          if ((ch == '}' && chx != '{') || (ch == ']' && chx != '[')
-	              || (ch == ')' && chx != '('))
-	            System.out.println("Error: " + ch + " at " + j);
-	        } else
-	          // prematurely empty
-	          System.out.println("Error: " + ch + " at " + j);
-	        break;
-	      default: // no action on other characters
-	        break;
-	      }
-	    }
-	    if (!theStack.isEmpty())
-	      System.out.println("Error: missing right delimiter");
-	  }
-
-	  public static void main(String[] args) throws IOException {
-	    String input = "{Java [Source] (and) {[(Support)]}}";
-	    Main theChecker = new Main(input);
-	    theChecker.check(); 
-	  }
-
+	public Main(String in) {
+		input = in;
 	}
 
-	class Stack {
-	  private int maxSize;
+	public void check() {
+		int stackSize = input.length();
+		Stack theStack = new Stack(stackSize);
 
-	  private char[] stackArray;
+		for (int j = 0; j < input.length(); j++) {
+			char ch = input.charAt(j);
+			switch (ch) {
+			case '{': // opening symbols
+			case '[':
+			case '(':
+				theStack.push(ch); // push them
+				break;
 
-	  private int top;
+			case '}': // closing symbols
+			case ']':
+			case ')':
+				if (!theStack.isEmpty()) // if stack not empty,
+				{
+					char chx = theStack.pop(); // pop and check
+					if ((ch == '}' && chx != '{') || (ch == ']' && chx != '[') || (ch == ')' && chx != '('))
+						System.out.println("Error: " + ch + " at " + j);
+				} else
+					// prematurely empty
+					System.out.println("Error: " + ch + " at " + j);
+				break;
+			default: // no action on other characters
+				break;
+			}
+		}
+		if (!theStack.isEmpty())
+			System.out.println("Error: missing right delimiter");
+	}
 
-	  public Stack(int max) {
-	    maxSize = max;
-	    stackArray = new char[maxSize];
-	    top = -1;
-	  }
+	public static void main(String[] args) throws IOException {
+		String input = "{Java [Source] (and) {[(Support)]}}";
+		Main theChecker = new Main(input);
+		theChecker.check();
+	}
 
-	  public void push(char j) {
-	    stackArray[++top] = j;
-	  }
+}
 
-	  public char pop() {
-	    return stackArray[top--];
-	  }
+class Stack {
+	private int maxSize;
 
-	  public char peek() {
-	    return stackArray[top];
-	  }
+	private char[] stackArray;
 
-	  public boolean isEmpty() {
-	    return (top == -1);
-	  }
+	private int top;
+
+	public Stack(int max) {
+		maxSize = max;
+		stackArray = new char[maxSize];
+		top = -1;
+	}
+
+	public void push(char j) {
+		stackArray[++top] = j;
+	}
+
+	public char pop() {
+		return stackArray[top--];
+	}
+
+	public char peek() {
+		return stackArray[top];
+	}
+
+	public boolean isEmpty() {
+		return (top == -1);
+	}
 }

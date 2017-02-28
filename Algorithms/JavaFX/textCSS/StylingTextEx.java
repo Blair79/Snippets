@@ -14,42 +14,39 @@ import javafx.stage.Stage;
  *
  * This program styles a Text control with CSS.
  *
- * Author: Jan Bodnar
- * Website: zetcode.com
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class StylingTextEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        HBox root = new HBox();
-        root.setPadding(new Insets(20));
+		HBox root = new HBox();
+		root.setPadding(new Insets(20));
 
-        Text text = new Text("ZetCode");
-        text.setFont(Font.font("Serif", FontWeight.BOLD, 76));
+		Text text = new Text("ZetCode");
+		text.setFont(Font.font("Serif", FontWeight.BOLD, 76));
 
-        text.setId("text");
-        root.setId("root");
+		text.setId("text");
+		root.setId("root");
 
-        root.getChildren().addAll(text);
+		root.getChildren().addAll(text);
 
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(this.getClass().getResource("text.css")
-                .toExternalForm());
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(this.getClass().getResource("text.css").toExternalForm());
 
-        stage.setTitle("Styling text");
-        stage.setScene(scene);
-        stage.show();
-    }
+		stage.setTitle("Styling text");
+		stage.setScene(scene);
+		stage.show();
+	}
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

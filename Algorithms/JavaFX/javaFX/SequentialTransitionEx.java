@@ -15,64 +15,58 @@ import javafx.util.Duration;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program plays three transitions in
- * a sequential order.
+ * This program plays three transitions in a sequential order.
  *
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class SequentialTransitionEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        Pane root = new Pane();
-        
-        Rectangle rect = new Rectangle(50, 50, 30, 30);
-        rect.setArcHeight(10);
-        rect.setArcWidth(10);
-        rect.setFill(Color.CADETBLUE);
+		Pane root = new Pane();
 
-        RotateTransition rottr
-                = new RotateTransition(Duration.millis(2000), rect);
-        rottr.setByAngle(180);
-        rottr.setCycleCount(2);
-        rottr.setAutoReverse(true);
-        
-        ScaleTransition sctr = new ScaleTransition(Duration.millis(2000), 
-                rect);
-        sctr.setByX(2);
-        sctr.setByY(2);
-        sctr.setCycleCount(2);
-        sctr.setAutoReverse(true);
-        
-        FillTransition fltr = new FillTransition(Duration.millis(2000), 
-                rect, Color.CADETBLUE, Color.STEELBLUE);
-        fltr.setCycleCount(2);
-        fltr.setAutoReverse(true);
-        
-        root.getChildren().add(rect);
-        
-        SequentialTransition str = new SequentialTransition();
-        str.getChildren().addAll(rottr, sctr, fltr);
-        
-        str.play();         
+		Rectangle rect = new Rectangle(50, 50, 30, 30);
+		rect.setArcHeight(10);
+		rect.setArcWidth(10);
+		rect.setFill(Color.CADETBLUE);
 
-        Scene scene = new Scene(root, 300, 250);
+		RotateTransition rottr = new RotateTransition(Duration.millis(2000), rect);
+		rottr.setByAngle(180);
+		rottr.setCycleCount(2);
+		rottr.setAutoReverse(true);
 
-        stage.setTitle("SequentialTransition");
-        stage.setScene(scene);
-        stage.show();
-    }
+		ScaleTransition sctr = new ScaleTransition(Duration.millis(2000), rect);
+		sctr.setByX(2);
+		sctr.setByY(2);
+		sctr.setCycleCount(2);
+		sctr.setAutoReverse(true);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+		FillTransition fltr = new FillTransition(Duration.millis(2000), rect, Color.CADETBLUE, Color.STEELBLUE);
+		fltr.setCycleCount(2);
+		fltr.setAutoReverse(true);
+
+		root.getChildren().add(rect);
+
+		SequentialTransition str = new SequentialTransition();
+		str.getChildren().addAll(rottr, sctr, fltr);
+
+		str.play();
+
+		Scene scene = new Scene(root, 300, 250);
+
+		stage.setTitle("SequentialTransition");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

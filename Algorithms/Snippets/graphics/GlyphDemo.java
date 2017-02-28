@@ -20,58 +20,53 @@ import javax.swing.JPanel;
 
 public class GlyphDemo extends JFrame {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    JPanel panel;
+	JPanel panel;
 
-    JLabel label;
+	JLabel label;
 
-    ImageIcon icon;
+	ImageIcon icon;
 
-    BufferedImage image;
+	BufferedImage image;
 
-    public GlyphDemo() {
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-    }
+	public GlyphDemo() {
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
 
-    public void paint(Graphics g) {
-        File file = new File("test.jpg");
+	public void paint(Graphics g) {
+		File file = new File("test.jpg");
 
-        try {
-            this.image = ImageIO.read(file);
-            setSize(image.getWidth(), image.getHeight());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+		try {
+			this.image = ImageIO.read(file);
+			setSize(image.getWidth(), image.getHeight());
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        
-        Font f = new Font("Verdana", Font.ITALIC | Font.BOLD, 200);
+		Font f = new Font("Verdana", Font.ITALIC | Font.BOLD, 200);
 
-        GlyphVector gv = f
-                .createGlyphVector(g2d.getFontRenderContext(), "Java");
+		GlyphVector gv = f.createGlyphVector(g2d.getFontRenderContext(), "Java");
 
-        g2d.fill(new Rectangle2D.Float(0, 0, image.getWidth(), image
-                .getHeight()));
+		g2d.fill(new Rectangle2D.Float(0, 0, image.getWidth(), image.getHeight()));
 
-        Shape clipping_shape = gv.getOutline();
+		Shape clipping_shape = gv.getOutline();
 
-        g2d.translate(-clipping_shape.getBounds().getX() / 2, -clipping_shape
-                .getBounds().getY() + 100);
+		g2d.translate(-clipping_shape.getBounds().getX() / 2, -clipping_shape.getBounds().getY() + 100);
 
-        g2d.setClip(clipping_shape);
+		g2d.setClip(clipping_shape);
 
-        g2d.setTransform(new AffineTransform());
+		g2d.setTransform(new AffineTransform());
 
-        g2d.drawImage(image, null, 0, 0);
-    }
+		g2d.drawImage(image, null, 0, 0);
+	}
 
-    public static void main(String args[]) {
-        new GlyphDemo();
-    }
-} 
+	public static void main(String args[]) {
+		new GlyphDemo();
+	}
+}

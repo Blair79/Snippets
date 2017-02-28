@@ -19,51 +19,47 @@ import javafx.util.Duration;
  *
  * This program presents the ProgressBar control.
  *
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class ProgressBarEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        HBox root = new HBox(15);
-        root.setAlignment(Pos.CENTER);
-        root.setPadding(new Insets(10));
+		HBox root = new HBox(15);
+		root.setAlignment(Pos.CENTER);
+		root.setPadding(new Insets(10));
 
-        ProgressBar pbar = new ProgressBar(0);
-        pbar.setPrefWidth(150);
-        
-        KeyFrame frame1 = new KeyFrame(Duration.ZERO, 
-                new KeyValue(pbar.progressProperty(), 0));
-        
-        KeyFrame frame2 = new KeyFrame(Duration.seconds(3), 
-                new KeyValue(pbar.progressProperty(), 1));        
+		ProgressBar pbar = new ProgressBar(0);
+		pbar.setPrefWidth(150);
 
-        Timeline task = new Timeline(frame1, frame2);
+		KeyFrame frame1 = new KeyFrame(Duration.ZERO, new KeyValue(pbar.progressProperty(), 0));
 
-        Button btn = new Button("Start");
-        btn.setOnAction((ActionEvent actionEvent) -> {
-            task.playFromStart();
-        });
+		KeyFrame frame2 = new KeyFrame(Duration.seconds(3), new KeyValue(pbar.progressProperty(), 1));
 
-        root.getChildren().addAll(pbar, btn);
+		Timeline task = new Timeline(frame1, frame2);
 
-        Scene scene = new Scene(root);
+		Button btn = new Button("Start");
+		btn.setOnAction((ActionEvent actionEvent) -> {
+			task.playFromStart();
+		});
 
-        stage.setTitle("ProgressBar");
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    public static void main(String[] args) {
-        launch(args);
-    }
+		root.getChildren().addAll(pbar, btn);
+
+		Scene scene = new Scene(root);
+
+		stage.setTitle("ProgressBar");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

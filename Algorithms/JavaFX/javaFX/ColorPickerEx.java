@@ -14,48 +14,45 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program uses the ColorPicker 
- * dialog to choose a colour value.
+ * This program uses the ColorPicker dialog to choose a colour value.
  *
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class ColorPickerEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        HBox root = new HBox(25);
-        root.setAlignment(Pos.BASELINE_CENTER);
-        root.setPadding(new Insets(10));
+		HBox root = new HBox(25);
+		root.setAlignment(Pos.BASELINE_CENTER);
+		root.setPadding(new Insets(10));
 
-        Text txt = new Text("ZetCode");
+		Text txt = new Text("ZetCode");
 
-        Font font = Font.font(20);
-        txt.setFont(font);
+		Font font = Font.font(20);
+		txt.setFont(font);
 
-        ColorPicker cp = new ColorPicker();
-        cp.setOnAction((ActionEvent event) -> {
-            txt.setFill(cp.getValue());
-        });
+		ColorPicker cp = new ColorPicker();
+		cp.setOnAction((ActionEvent event) -> {
+			txt.setFill(cp.getValue());
+		});
 
-        root.getChildren().addAll(cp, txt);
+		root.getChildren().addAll(cp, txt);
 
-        Scene scene = new Scene(root, 300, 250);
+		Scene scene = new Scene(root, 300, 250);
 
-        stage.setTitle("ColorPicker");
-        stage.setScene(scene);
-        stage.show();
-    }
+		stage.setTitle("ColorPicker");
+		stage.setScene(scene);
+		stage.show();
+	}
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

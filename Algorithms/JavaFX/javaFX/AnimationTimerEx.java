@@ -11,64 +11,61 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program uses AnimationTimer to 
- * create an animation.
+ * This program uses AnimationTimer to create an animation.
  *
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class AnimationTimerEx extends Application {
 
-    private double opacity = 1;
-    private Label lbl;
+	private double opacity = 1;
+	private Label lbl;
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        StackPane root = new StackPane();
+		StackPane root = new StackPane();
 
-        lbl = new Label("JavaFX");
-        lbl.setFont(Font.font(48));
-        root.getChildren().add(lbl);
+		lbl = new Label("JavaFX");
+		lbl.setFont(Font.font(48));
+		root.getChildren().add(lbl);
 
-        AnimationTimer timer = new MyTimer();
-        timer.start();
+		AnimationTimer timer = new MyTimer();
+		timer.start();
 
-        Scene scene = new Scene(root, 300, 250);
+		Scene scene = new Scene(root, 300, 250);
 
-        stage.setTitle("AnimationTimer");
-        stage.setScene(scene);
-        stage.show();
-    }
+		stage.setTitle("AnimationTimer");
+		stage.setScene(scene);
+		stage.show();
+	}
 
-    private class MyTimer extends AnimationTimer {
+	private class MyTimer extends AnimationTimer {
 
-        @Override
-        public void handle(long now) {
-        
-            doHandle();
-        }
+		@Override
+		public void handle(long now) {
 
-        private void doHandle() {
+			doHandle();
+		}
 
-            opacity -= 0.01;
-            lbl.opacityProperty().set(opacity);
+		private void doHandle() {
 
-            if (opacity <= 0) {
-                stop();
-                System.out.println("Animation stopped");
-            }
-        }
-    }
+			opacity -= 0.01;
+			lbl.opacityProperty().set(opacity);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+			if (opacity <= 0) {
+				stop();
+				System.out.println("Animation stopped");
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

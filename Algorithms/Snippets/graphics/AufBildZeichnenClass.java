@@ -17,53 +17,51 @@ import javax.swing.border.LineBorder;
 
 public class AufBildZeichnenClass extends JFrame {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    JPanel panel;
+	JPanel panel;
 
-    JLabel label;
+	JLabel label;
 
-    ImageIcon icon;
+	ImageIcon icon;
 
-    BufferedImage image;
+	BufferedImage image;
 
-    public AufBildZeichnenClass() {
+	public AufBildZeichnenClass() {
 
-        File file = new File("/pfad/bild.jpg");
-        
-        try {
-            this.image = ImageIO.read(file);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        int imageBreite = image.getWidth();
-        int imageHoehe = image.getHeight();
-        
+		File file = new File("/pfad/bild.jpg");
 
-        Graphics g = image.getGraphics();
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 190, 450, 50);
-        g.setFont(new Font("Sans", Font.PLAIN, 40));
-        g.setColor(Color.WHITE);
-        g.drawString("zensiert", 40, 230);
-        
+		try {
+			this.image = ImageIO.read(file);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		int imageBreite = image.getWidth();
+		int imageHoehe = image.getHeight();
 
-        icon = new ImageIcon(image);
-        label = new JLabel(icon);
-        label.setBorder(new LineBorder(Color.WHITE));
+		Graphics g = image.getGraphics();
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 190, 450, 50);
+		g.setFont(new Font("Sans", Font.PLAIN, 40));
+		g.setColor(Color.WHITE);
+		g.drawString("zensiert", 40, 230);
 
-        panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        panel.setBackground(Color.DARK_GRAY);
-        panel.add(label, BorderLayout.CENTER);
+		icon = new ImageIcon(image);
+		label = new JLabel(icon);
+		label.setBorder(new LineBorder(Color.WHITE));
 
-        getContentPane().add(panel);
-        setSize(imageBreite + 100, imageHoehe + 100);
-    }
+		panel = new JPanel();
+		panel.setLayout(new BorderLayout());
+		panel.setBackground(Color.DARK_GRAY);
+		panel.add(label, BorderLayout.CENTER);
 
-    public static void main(String args[]) {
-        AufBildZeichnenClass cl = new AufBildZeichnenClass();
-        cl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        cl.setVisible(true);
-    }
-} 
+		getContentPane().add(panel);
+		setSize(imageBreite + 100, imageHoehe + 100);
+	}
+
+	public static void main(String args[]) {
+		AufBildZeichnenClass cl = new AufBildZeichnenClass();
+		cl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		cl.setVisible(true);
+	}
+}

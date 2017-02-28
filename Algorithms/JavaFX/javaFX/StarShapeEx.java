@@ -11,49 +11,44 @@ import javafx.stage.Stage;
 /**
  * ZetCode JavaFX tutorial
  *
- * This program draws a Star shape on 
- * a Canvas.
+ * This program draws a Star shape on a Canvas.
  * 
- * Author: Jan Bodnar 
- * Website: zetcode.com 
- * Last modified: June 2015
+ * Author: Jan Bodnar Website: zetcode.com Last modified: June 2015
  */
 
 public class StarShapeEx extends Application {
 
-    @Override
-    public void start(Stage stage) {
+	@Override
+	public void start(Stage stage) {
 
-        initUI(stage);
-    }
+		initUI(stage);
+	}
 
-    private void initUI(Stage stage) {
+	private void initUI(Stage stage) {
 
-        Pane root = new Pane();
+		Pane root = new Pane();
 
-        Canvas canvas = new Canvas(300, 300);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        drawStarShape(gc);
+		Canvas canvas = new Canvas(300, 300);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		drawStarShape(gc);
 
-        root.getChildren().add(canvas);
+		root.getChildren().add(canvas);
 
-        Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
+		Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
 
-        stage.setTitle("Star");
-        stage.setScene(scene);
-        stage.show();
-    }
+		stage.setTitle("Star");
+		stage.setScene(scene);
+		stage.show();
+	}
 
-    private void drawStarShape(GraphicsContext gc) {
+	private void drawStarShape(GraphicsContext gc) {
 
-        double xpoints[] = {10, 85, 110, 135, 210, 160,
-            170, 110, 50, 60};
-        double ypoints[] = {85, 75, 10, 75, 85, 125,
-            190, 150, 190, 125};
-        gc.strokePolygon(xpoints, ypoints, xpoints.length);
-    }
-   
-    public static void main(String[] args) {
-        launch(args);
-    }
+		double xpoints[] = { 10, 85, 110, 135, 210, 160, 170, 110, 50, 60 };
+		double ypoints[] = { 85, 75, 10, 75, 85, 125, 190, 150, 190, 125 };
+		gc.strokePolygon(xpoints, ypoints, xpoints.length);
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

@@ -13,7 +13,7 @@ public class Main {
 }
 
 class RandomInRanges {
-	private final List<Integer> range = new ArrayList<>();
+	private final List<Integer> range = new ArrayList<Integer>();
 
 	RandomInRanges(int min, int max) {
 		this.addRange(min, max);

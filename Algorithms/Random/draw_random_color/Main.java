@@ -25,7 +25,6 @@ public class Main extends JFrame {
 			String randomTitle = labels[index];
 			final JLabel label = new JLabel(randomTitle, JLabel.CENTER);
 			Timer lblt = new Timer(00, new ActionListener() {
-				@Override
 				public void actionPerformed(ActionEvent ae) {
 					label.setText(labels[rand.nextInt(labels.length)]);
 				}
@@ -46,7 +45,6 @@ public class Main extends JFrame {
 		frame.setVisible(true);
 
 		ActionListener action = new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < panels.length; i++) {
 					Color mix = new Color(255, 255, 255);

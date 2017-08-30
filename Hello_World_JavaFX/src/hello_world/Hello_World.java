@@ -8,14 +8,24 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author colblair
+ * @category Example
+ * @version 1.0
+ *
+ */
 public class Hello_World extends Application {
-
+	/**
+	 * Initialize of the Primary Stage
+	 * @param primaryStage The Stage from Hello_World extended from Application
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		Button btn = new Button();
 		btn.setText("Say 'Hello World'");
 		btn.setOnAction(new EventHandler<ActionEvent>() {
-
+			
 			@Override
 			public void handle(ActionEvent event) {
 				System.out.println("Hello World!");
@@ -31,7 +41,10 @@ public class Hello_World extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-
+/**
+ * 
+ * @param args Without meaning
+ */
 	public static void main(String[] args) {
 		launch(args);
 	}

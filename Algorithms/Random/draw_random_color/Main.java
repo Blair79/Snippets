@@ -11,6 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Main extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int grid = 20;
 	int pnlCnt = grid * grid;
 	JFrame frame = new JFrame();

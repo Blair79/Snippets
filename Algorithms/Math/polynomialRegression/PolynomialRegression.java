@@ -138,7 +138,7 @@ public class PolynomialRegression {
             j--;
 
         // create remaining terms
-        for (j = j; j >= 0; j--) {
+        for (j = j+0; j >= 0; j--) {
             if      (j == 0) s += String.format("%.2f ", beta(j));
             else if (j == 1) s += String.format("%.2f N + ", beta(j));
             else             s += String.format("%.2f N^%d + ", beta(j), j);

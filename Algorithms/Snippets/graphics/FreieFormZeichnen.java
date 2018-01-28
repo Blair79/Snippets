@@ -14,6 +14,10 @@ import javax.swing.JPanel;
  */
 public class FreieFormZeichnen extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JPanel panel;
 
 	public FreieFormZeichnen() {
@@ -31,6 +35,11 @@ public class FreieFormZeichnen extends JFrame {
 }
 
 class FreiFormPanel extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void paintComponent(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setColor(Color.WHITE);

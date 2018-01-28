@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class Main extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JButton num1, num2, num3, num4, num5, num6, num7, num8, num9, num0, add, sub, div, mult, equalto, exit, point,
 			reset;
 	JTextField textField;

@@ -13,6 +13,11 @@ import javax.swing.JPanel;
 
 public class LinearGradient extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public LinearGradient() {
 		GradientPanel gp = new GradientPanel();
 		gp.add(new JButton("click"));
@@ -31,6 +36,11 @@ public class LinearGradient extends JFrame {
 }
 
 class GradientPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public GradientPanel() {
 		super();

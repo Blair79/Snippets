@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class ArrayListZuArrayClass {
 	public static void main(String[] args) {
-		ArrayList al = new ArrayList();
+		ArrayList<Integer> al = new ArrayList<Integer>();
 		int i = 25;
 		while (i < 74) {
-			al.add(new Integer(i));
+			al.add(Integer.valueOf(i));
 			i++;
 		}
 		Integer[] ia = new Integer[al.size()];

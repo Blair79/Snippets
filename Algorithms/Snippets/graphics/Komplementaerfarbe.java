@@ -16,6 +16,10 @@ import javax.swing.SwingConstants;
 
 public class Komplementaerfarbe extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JLabel topLabel, bottomLabel;
 
 	public Komplementaerfarbe() {

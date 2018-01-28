@@ -7,9 +7,9 @@ public class ArrayParts {
 	public static void main(String[] args) {
 		Object[] arr = new Object[10];
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = new Integer(i);
+			arr[i] = Integer.valueOf(i);
 		}
-		int key = getKey(arr, new Integer(6));
+		int key = getKey(arr, Integer.valueOf(6));
 		arr = switchParts(arr, key);
 		for (Object o : arr)
 			System.out.println(o);

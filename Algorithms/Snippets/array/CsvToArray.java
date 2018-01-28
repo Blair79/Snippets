@@ -1,10 +1,5 @@
 package array;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 public class CsvToArray {
 	private static final String TRENNER = ",";
 
@@ -16,7 +11,7 @@ public class CsvToArray {
 			sa[i] = sa[i].trim();
 			if (sa[i].matches("[-|+]?[0-9]{1,}")) {
 				try {
-					ia[i] = new Integer(sa[i]).intValue();
+					ia[i] = Integer.valueOf(sa[i]);
 				} catch (NumberFormatException nfe) {
 				}
 			}

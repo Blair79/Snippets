@@ -315,7 +315,7 @@ public class ImageDemo extends JFrame implements ChangeListener, ActionListener 
 			return 1;
 		dStr = dStr.replace(',', '.');
 		try {
-			return new Double(dStr).doubleValue();
+			return Double.valueOf(dStr).doubleValue();
 		} catch (NumberFormatException nfe) {
 			System.out.println("falsches Zahlformat");
 		}
@@ -351,7 +351,7 @@ public class ImageDemo extends JFrame implements ChangeListener, ActionListener 
 				yFaktor = yPosRotateField.getText();
 			}
 			double faktor = (double) rotateSlider.getValue() / 100;
-			img = rotateImage(new Double(faktor).toString(), xFaktor, yFaktor);
+			img = rotateImage(Double.valueOf(faktor).toString(), xFaktor, yFaktor);
 			setImg(img);
 		}
 		if (transRB.isSelected()) {

@@ -7,7 +7,6 @@ package snippets;
  */
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GraphicsDevice;

@@ -12,6 +12,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class SpeichernUnterClass extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public SpeichernUnterClass() {
 		JButton butt = new JButton("Speichern unter...");
 		butt.addActionListener(new ActionListener() {

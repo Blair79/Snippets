@@ -5,10 +5,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -46,42 +43,6 @@ public class ManipulateImage extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-	}
-
-	private void processImage() {
-		File file = new File("test.jpg");
-		try {
-			this.image = ImageIO.read(file);
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-
-		ColorModel model = image.getColorModel();
-
-		WritableRaster raster = image.getRaster();
-		for (int i = 0; i < image.getWidth(); i++) {
-			for (int j = 0; j < image.getHeight(); j++) {
-
-				Object dataAlt = raster.getDataElements(i, j, null);
-				int argbAlt = model.getRGB(dataAlt);
-
-				Color c = new Color(argbAlt, true);
-
-				int limit = 150, wert = 50;
-
-				int r = (c.getRed() + limit) < 256 ? c.getRed() + wert : 255;
-				int g = (c.getGreen() + limit) < 256 ? c.getGreen() + wert : 255;
-				int b = (c.getBlue() + limit) < 256 ? c.getBlue() + wert : 255;
-
-				Color cNeu = new Color(r, g, b);
-
-				int argbNeu = cNeu.getRGB();
-
-				Object dataNeu = model.getDataElements(argbNeu, null);
-
-				raster.setDataElements(i, j, dataNeu);
-			}
-		}
 	}
 
 	private void makeImage() {

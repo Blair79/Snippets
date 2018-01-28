@@ -12,9 +12,9 @@ public class DatumsDifferenz {
 		int y = p.getYears();
 		int m = p.getMonths();
 		int d = p.getDays();
-		String yStr = y > 0 ? new Integer(y).toString() + (y > 1 ? " Jahren, " : " Jahr, ") : "";
-		String mStr = m > 0 ? new Integer(m).toString() + (m > 1 ? " Monaten, " : " Monat, ") : "";
-		String dStr = d > 0 ? new Integer(d).toString() + (d > 1 ? " Tagen" : " Tag") : "";
+		String yStr = y > 0 ? Integer.valueOf(y).toString() + (y > 1 ? " Jahren, " : " Jahr, ") : "";
+		String mStr = m > 0 ? Integer.valueOf(m).toString() + (m > 1 ? " Monaten, " : " Monat, ") : "";
+		String dStr = d > 0 ? Integer.valueOf(d).toString() + (d > 1 ? " Tagen" : " Tag") : "";
 		int comp = endDate.compareTo(now);
 		if (comp > 0)
 			System.out.println("Weihnachten ist in " + yStr + mStr + dStr + ".");

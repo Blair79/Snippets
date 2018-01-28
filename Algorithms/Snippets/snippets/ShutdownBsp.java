@@ -4,6 +4,11 @@ import javax.swing.JFrame;
 
 public class ShutdownBsp extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ShutdownBsp() {
 		Runtime.getRuntime().addShutdownHook(new ShutdownThread());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

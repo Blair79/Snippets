@@ -14,6 +14,7 @@ public class DateiKopierenClass {
 		copyFile(inF, outF);
 	}
 
+	@SuppressWarnings("resource")
 	public static void copyFile(File in, File out) throws IOException {
 		FileChannel inChannel = null;
 		FileChannel outChannel = null;

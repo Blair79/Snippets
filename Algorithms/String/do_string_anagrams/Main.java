@@ -20,7 +20,6 @@ public class Main {
 	}
 
 	public static void doAnagram(int newSize) {
-		int limit;
 		if (newSize == 1) // if too small, return;
 			return;
 		// for each position,

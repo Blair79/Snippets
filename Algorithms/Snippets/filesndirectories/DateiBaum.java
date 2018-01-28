@@ -20,6 +20,10 @@ import javax.swing.tree.TreePath;
 
 public class DateiBaum extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public final static int SHOW_ALL = 0;
 	public final static int SHOW_HIDDEN = 1;
 	public final static int SHOW_VISIBLE = -1;
@@ -106,6 +110,11 @@ public class DateiBaum extends JFrame {
 }
 
 class FNode extends DefaultMutableTreeNode {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public FNode(File file) {
 		setUserObject(file);

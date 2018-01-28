@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author ColBl
- *
- */
-package jOpenDocument;

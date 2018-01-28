@@ -8,6 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Main extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Main() {
 		setLayout(new BorderLayout());
 		add(new DrawSine(), BorderLayout.CENTER);
@@ -22,6 +27,11 @@ public class Main extends JFrame {
 }
 
 class DrawSine extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	double f(double x) {
 		return Math.sin(x);
 	}

@@ -17,6 +17,10 @@ import javax.swing.event.ChangeListener;
 
 public class AffineTransformation extends JFrame implements ChangeListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	AffineTransformationPanel panel;
 
 	public AffineTransformation() {
@@ -45,6 +49,10 @@ public class AffineTransformation extends JFrame implements ChangeListener {
 
 class AffineTransformationPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	double num;
 
 	public void paintComponent(Graphics g) {

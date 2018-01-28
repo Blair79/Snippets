@@ -18,6 +18,10 @@ import javax.swing.JPanel;
 
 public class Stoppuhr extends JFrame implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton startButt, stopButt, resetButt;
 	private UhrPanel panel;
 
@@ -63,6 +67,11 @@ public class Stoppuhr extends JFrame implements ActionListener {
 }
 
 class UhrPanel extends JPanel implements Runnable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public UhrPanel() {
 		start();

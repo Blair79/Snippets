@@ -50,6 +50,7 @@ public class MehrereDateienUmbenennen {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	public static void copyFile(File in, File out) {
 		FileChannel inChannel = null;
 		FileChannel outChannel = null;

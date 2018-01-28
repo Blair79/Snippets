@@ -81,6 +81,7 @@ public class Polynomial {
             objectForPolynomial3.coefficients[loopingVariable] = objectForPolynomial1.coefficients[loopingVariable] + objectForPolynomial2.coefficients[loopingVariable];
         }
 
+        scannerObject.close();
        return objectForPolynomial3;
     }
 
@@ -121,6 +122,7 @@ public class Polynomial {
             }
         }
 
+        scannerObject.close();
         return objectForPolynomial3;
     }
 
@@ -131,7 +133,7 @@ public class Polynomial {
         System.out.println(obj.coefficients[0]);
 
         System.out.println("Testing multiply function");
-        obj.multiply();
+        Polynomial.multiply();
         System.out.println(obj.coefficients[0]);
 
     }

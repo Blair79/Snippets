@@ -36,7 +36,7 @@ public class openCSV {
 
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	private static void CSVMappedToJavaBeanExample() throws IOException {
 		CsvToBean csv = new CsvToBean();
 
@@ -60,6 +60,7 @@ public class openCSV {
 		return strategy;
 	}
 
+	@SuppressWarnings("unused")
 	private static void write() throws IOException {
 		CSVWriter writer = new CSVWriter(new FileWriter(csvFilename));
 
@@ -72,6 +73,7 @@ public class openCSV {
 		writer.close();
 	}
 
+	@SuppressWarnings("unused")
 	private static void appendToCSVExample() throws IOException {
 		CSVWriter writer = new CSVWriter(new FileWriter(csvFilename, true));
 
@@ -82,6 +84,7 @@ public class openCSV {
 		writer.close();
 	}
 
+	@SuppressWarnings("unused")
 	private static void parseCSVLineByLine() throws IOException {
 		// Build reader instance
 		// Read data.csv
@@ -101,6 +104,7 @@ public class openCSV {
 		reader.close();
 	}
 
+	@SuppressWarnings("unused")
 	private static void parseFullCSVExample() throws IOException {
 		// Build reader instance
 		CSVReader reader = new CSVReader(new FileReader(csvFilename), ',', '"', 0);
@@ -115,6 +119,7 @@ public class openCSV {
 		reader.close();
 	}
 
+	@SuppressWarnings("unused")
 	private static void databaseEx() throws IOException, SQLException {
 		Connection con = null;
 		PreparedStatement pst = null;
@@ -162,6 +167,7 @@ public class openCSV {
 
 	}
 
+	@SuppressWarnings("unused")
 	private static void beanEx() throws IOException {
 
 		String fileName = "C:\\Users\\ColBl\\Desktop\\cars.csv";

@@ -14,6 +14,10 @@ import javax.swing.JPanel;
 
 public class Zeitsteuerung extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Timer t;
 	private JLabel label;
 

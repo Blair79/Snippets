@@ -15,6 +15,11 @@ import javax.swing.JPanel;
 
 public class RadialGradient extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public RadialGradient() {
 		RoundGradientPanel gp = new RoundGradientPanel();
 		gp.add(new JButton("click"));
@@ -33,6 +38,11 @@ public class RadialGradient extends JFrame {
 }
 
 class RoundGradientPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public RoundGradientPanel() {
 		super();

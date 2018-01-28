@@ -1,12 +1,13 @@
 package array;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ArrayListClass {
 	public static void main(String[] args) {
-		ArrayList al = new ArrayList();
-		Integer ig = new Integer(17);
-		Character ca = new Character('w');
+		ArrayList<Serializable> al = new ArrayList<Serializable>();
+		Integer ig = Integer.valueOf(17);
+		Character ca = Character.valueOf('w');
 		al.add("Willi");
 		al.add(ca);
 		al.add(ig);

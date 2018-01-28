@@ -4,6 +4,11 @@ import java.awt.*;
 import javax.swing.JFrame;
 
 public class PaintClass extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public PaintClass() {
 		super();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

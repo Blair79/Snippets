@@ -56,7 +56,8 @@ public class CalendarSample {
 	 * is {@code null} or blank, the application will log a warning. Suggested
 	 * format is "MyCompany-ProductName/1.0".
 	 */
-	private static final String APPLICATION_NAME = "";
+	@SuppressWarnings("unused")
+	private static final String APPLICATION_NAME = "MyCompany-ProductName/1.0";
 
 	/** Directory to store user credentials. */
 	private static final java.io.File DATA_STORE_DIR = new java.io.File(System.getProperty("user.home"),
@@ -146,12 +147,14 @@ public class CalendarSample {
 		System.exit(1);
 	}
 
+	@SuppressWarnings("unused")
 	private static void showCalendars() throws IOException {
 		View.header("Show Calendars");
 		CalendarList feed = client.calendarList().list().execute();
 		View.display(feed);
 	}
 
+	@SuppressWarnings("unused")
 	private static void addCalendarsUsingBatch() throws IOException {
 		View.header("Add Calendars using Batch");
 		BatchRequest batch = client.batch();
@@ -181,6 +184,7 @@ public class CalendarSample {
 		batch.execute();
 	}
 
+	@SuppressWarnings("unused")
 	private static Calendar addCalendar() throws IOException {
 		View.header("Add Calendar");
 		Calendar entry = new Calendar();
@@ -190,6 +194,7 @@ public class CalendarSample {
 		return result;
 	}
 
+	@SuppressWarnings("unused")
 	private static Calendar updateCalendar(Calendar calendar) throws IOException {
 		View.header("Update Calendar");
 		Calendar entry = new Calendar();
@@ -199,6 +204,7 @@ public class CalendarSample {
 		return result;
 	}
 
+	@SuppressWarnings("unused")
 	private static void addEvent(Calendar calendar) throws IOException {
 		View.header("Add Event");
 		Event event = newEvent();
@@ -218,12 +224,14 @@ public class CalendarSample {
 		return event;
 	}
 
+	@SuppressWarnings("unused")
 	private static void showEvents(Calendar calendar) throws IOException {
 		View.header("Show Events");
 		Events feed = client.events().list(calendar.getId()).execute();
 		View.display(feed);
 	}
 
+	@SuppressWarnings("unused")
 	private static void deleteCalendarsUsingBatch() throws IOException {
 		View.header("Delete Calendars Using Batch");
 		BatchRequest batch = client.batch();
@@ -245,6 +253,7 @@ public class CalendarSample {
 		batch.execute();
 	}
 
+	@SuppressWarnings("unused")
 	private static void deleteCalendar(Calendar calendar) throws IOException {
 		View.header("Delete Calendar");
 		client.calendars().delete(calendar.getId()).execute();

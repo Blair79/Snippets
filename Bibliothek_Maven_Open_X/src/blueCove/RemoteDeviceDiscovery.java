@@ -9,7 +9,7 @@ import javax.bluetooth.*;
  */
 public class RemoteDeviceDiscovery {
 
-	public static final Vector/* <RemoteDevice> */ devicesDiscovered = new Vector();
+	public static final Vector<RemoteDevice> devicesDiscovered = new Vector<RemoteDevice>();
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
